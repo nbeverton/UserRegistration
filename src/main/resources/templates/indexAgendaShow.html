@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Esta é uma página do indexAgendaShow</title>
+</head>
+<body>
+  <h1>Esta é uma página do indexAgendaShow</h1>
+  <h3><a href="agendaShow"> Inserir novo agendamento! </a></h3>
+
+  <div th:each="agenda : ${agendas}">
+    <div class="row">
+      <p><span th:text="${agenda.name}"></span></p>
+      <p><span th:text="${agenda.place}"></span></p>
+      <p><span th:text="${agenda.time}"></span></p>
+      <p><span th:text="${agenda.date}"></span></p>
+    </div>
+  </div>
+
+</body>
+</html>

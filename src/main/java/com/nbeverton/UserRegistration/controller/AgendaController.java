@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AgendaController {
@@ -22,5 +23,13 @@ public class AgendaController {
     public String form(Agenda agenda){
         agendaRepository.save(agenda);
         return "redirect:/agendaShow";
+    }
+
+    @RequestMapping("/agendas")
+    public ModelAndView listAgenda(){
+        ModelAndView modelAndView = new ModelAndView("indexAgendaShow.html");
+        Iterable<Agenda> agenda = agendaRepository.findAll();
+        modelAndView.addObject("agendas", agenda);
+        return modelAndView;
     }
 }
