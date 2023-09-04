@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+
 import java.io.Serializable;
 
 @Entity
@@ -13,7 +14,7 @@ public class Agenda implements Serializable {
     private static final long serialVersionUID = 11;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private String place;
