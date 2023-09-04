@@ -1,11 +1,32 @@
 package com.nbeverton.UserRegistration.model;
 
-public class Agenda {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+import java.io.Serializable;
+
+@Entity
+public class Agenda implements Serializable {
+
+    private static final long serialVersionUID = 11;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String name;
     private String place;
     private String time;
     private String date;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
