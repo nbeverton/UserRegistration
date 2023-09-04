@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
     <title>Esta é uma página do indexAgendaShow</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
+
 <body>
   <h1>Esta é uma página do indexAgendaShow</h1>
-  <h3><a href="agendaShow"> Inserir novo agendamento! </a></h3>
+  <h3><a href="/agendaShow" class="waves-effect waves-light btn"><i class="material-icons right">add_box</i>Inserir Nova Agenda</a></h3>
 
-  <div th:each="agenda : ${agendas}">
-    <div class="row">
-      <p><span th:text="${agenda.name}"></span></p>
-      <p><span th:text="${agenda.place}"></span></p>
-      <p><span th:text="${agenda.time}"></span></p>
-      <p><span th:text="${agenda.date}"></span></p>
-    </div>
-  </div>
+  <table class="container">
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Local</th>
+      <th>Data</th>
+      <th>Horário</th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <tr th:each="agenda : ${agendas}">
+        <td><span th:text="${agenda.name}"></span></td>
+        <td><span th:text="${agenda.place}"></span></td>
+        <td><span th:text="${agenda.time}"></span></td>
+        <td><span th:text="${agenda.date}"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 
 </body>
 </html>
