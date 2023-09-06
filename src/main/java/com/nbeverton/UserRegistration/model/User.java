@@ -1,17 +1,28 @@
 package com.nbeverton.UserRegistration.model;
 
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "pacientes")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
     private String cpf;
     private String phone;
 
-    public User(int id, String name, String cpf, String phone) {
-        this.id = id;
+    public User(String name, String cpf, String phone) {
         this.name = name;
         this.cpf = cpf;
         this.phone = phone;
+    }
+
+    public User(){
+
     }
 
     public int getId() {

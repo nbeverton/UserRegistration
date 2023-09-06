@@ -1,4 +1,4 @@
-package com.nbeverton.UserRegistration.repository;
+package com.nbeverton.UserRegistration.model.repository;
 
 import com.nbeverton.UserRegistration.model.Agenda;
 import org.springframework.data.repository.CrudRepository;
