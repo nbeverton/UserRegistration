@@ -16,8 +16,7 @@ public class UserController {
         private UserRepository userRepository;
 
         @PostMapping
-        public User registerUser(@RequestParam String name, String cpf, String phone){
-            User user = new User(name, cpf, phone);
+        public User registerUser(User user){
             userRepository.save(user);
             return user;
         }
