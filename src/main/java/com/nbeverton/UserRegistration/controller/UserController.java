@@ -2,11 +2,11 @@ package com.nbeverton.UserRegistration.controller;
 
 import com.nbeverton.UserRegistration.model.User;
 import com.nbeverton.UserRegistration.model.repository.UserRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
@@ -16,8 +16,34 @@ public class UserController {
         private UserRepository userRepository;
 
         @PostMapping
-        public User registerUser(User user){
+        public User registerUser(@Valid User user){
             userRepository.save(user);
             return user;
+        }
+
+        @GetMapping("/consulta")
+        public Iterable<User> findUser(){
+           return userRepository.findAll();
+        }
+
+        @GetMapping(path = "/{id}")
+        public Optional<User> findUserById(@PathVariable int id){
+            return userRepository.findById(id);
+        }
+
+        @GetMapping(path = "/name/{partName}")
+        public Iterable<User> findUserByName(@PathVariable String partName){
+            return userRepository.findByNameContainingIgnoreCase(partName);
+        }
+
+        @PutMapping
+        public User editUser(@Valid User user){
+            userRepository.save(user);
+            return user;
+        }
+
+        @DeleteMapping(path = "/delete/{id}")
+        public void deleteUser(@PathVariable int id){
+            userRepository.deleteById(id);
         }
 }
