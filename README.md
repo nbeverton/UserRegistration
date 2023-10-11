@@ -46,5 +46,5 @@ O projeto **UserRegistration** oferece uma visão prática de como desenvolver u
 
 Fique à vontade para explorar o código-fonte e os recursos deste projeto no repositório do GitHub. Qualquer dúvida ou sugestão é bem-vinda para aprimorar esta aplicação.
 
-**[Link para o repositório no GitHub]([https://github.com/seu-usuario/UserRegistration](https://github.com/nbeverton/UserRegistration)https://github.com/nbeverton/UserRegistration)**
+**[Link para o repositório no GitHub]([https://github.com/nbeverton/UserRegistration]**
 
