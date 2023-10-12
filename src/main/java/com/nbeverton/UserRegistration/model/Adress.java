@@ -20,20 +20,21 @@ public class Adress {
     private String state;
     private String country;
     private String number;
-    private String CEP;
+    private String cep;
 
 
     public Adress() {
     }
 
-    public Adress(int id, String street, String city, String state, String country, String number, String CEP) {
+    public Adress(int id, User user, String street, String city, String state, String country, String number, String cep) {
         this.id = id;
+        this.user = user;
         this.street = street;
         this.city = city;
         this.state = state;
         this.country = country;
         this.number = number;
-        this.CEP = CEP;
+        this.cep = cep;
     }
 
     @Override
@@ -41,12 +42,12 @@ public class Adress {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Adress adress = (Adress) o;
-        return id == adress.id && Objects.equals(street, adress.street) && Objects.equals(city, adress.city) && Objects.equals(state, adress.state) && Objects.equals(country, adress.country) && Objects.equals(number, adress.number) && Objects.equals(CEP, adress.CEP);
+        return id == adress.id && Objects.equals(street, adress.street) && Objects.equals(city, adress.city) && Objects.equals(state, adress.state) && Objects.equals(country, adress.country) && Objects.equals(number, adress.number) && Objects.equals(cep, adress.cep);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, street, city, state, country, number, CEP);
+        return Objects.hash(id, street, city, state, country, number, cep);
     }
 
     public int getId() {
@@ -97,11 +98,19 @@ public class Adress {
         this.number = number;
     }
 
-    public String getCEP() {
-        return CEP;
+    public String getCep() {
+        return cep;
     }
 
-    public void setCEP(String CEP) {
-        this.CEP = CEP;
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
