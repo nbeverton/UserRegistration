@@ -4,6 +4,7 @@ import com.nbeverton.UserRegistration.model.User;
 import com.nbeverton.UserRegistration.model.repository.UserRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -43,6 +44,7 @@ public class UserController {
         }
 
         @DeleteMapping(path = "/delete/{id}")
+        @ResponseStatus(HttpStatus.NO_CONTENT)
         public void deleteUser(@PathVariable int id){
             userRepository.deleteById(id);
         }
