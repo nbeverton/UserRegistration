@@ -16,6 +16,7 @@ public class AdressController {
     @Autowired
     private AdressRepository adressRepository;
 
+    // Teste - ok
     @PostMapping("save")
     public Adress saveAdress(@Valid Adress adress){
         adressRepository.save(adress);
@@ -27,10 +28,13 @@ public class AdressController {
         return adressRepository.findAll();
     }
 
+
+    //Teste - ok
     @GetMapping("search/{id}")
     public Optional<Adress> findAdressById(@PathVariable int id){
         return adressRepository.findById(id);
     }
+
 
     @PutMapping
     public Adress editAdress(@Valid Adress adress){
@@ -38,6 +42,8 @@ public class AdressController {
         return adress;
     }
 
+
+    // Teste - ok
     @DeleteMapping(path = "/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteAdress(@PathVariable int id){

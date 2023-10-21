@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -16,17 +17,19 @@ public class UserController {
         @Autowired
         private UserRepository userRepository;
 
+        // Teste - ok
         @PostMapping("/save")
         public User registerUser(@Valid User user){
             userRepository.save(user);
             return user;
         }
 
-        @GetMapping("/search")
+        @GetMapping(path = "/searchAll")
         public Iterable<User> findUser(){
            return userRepository.findAll();
         }
 
+        // Teste - ok
         @GetMapping(path = "/search/{id}")
         public Optional<User> findUserById(@PathVariable int id){
             return userRepository.findById(id);

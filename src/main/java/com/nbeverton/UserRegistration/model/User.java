@@ -3,19 +3,25 @@ package com.nbeverton.UserRegistration.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "pacientes")
+@Getter
+@Setter
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotBlank
+    @NotBlank(message = "Este campo deve ser preenchido")
+    @Size(min = 2, max = 55)
     private String name;
     private String cpf;
     private String email;
@@ -49,51 +55,4 @@ public class User {
         return Objects.hash(id, name, cpf, email, phone, adress);
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public Set<Adress> getAdress() {
-        return adress;
-    }
-
-    public void setAdress(Set<Adress> adress) {
-        this.adress = adress;
-    }
 }
